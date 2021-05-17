@@ -38,7 +38,7 @@ public class EmployeeController {
     } 
 
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") int employeeId)
         throws ResourceNotFoundException {
         Employee employee = employeeRepository.findById(employeeId)
           .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
